@@ -8,7 +8,7 @@ Inside `/Docker/db/mysql` run:
 docker-compose up
 ```
 
-Your Database is now setup.
+The Database is now setup.
 
 ### Application Setup:
 The Spring Boot application can be run from your IDE and you should be good to go.
