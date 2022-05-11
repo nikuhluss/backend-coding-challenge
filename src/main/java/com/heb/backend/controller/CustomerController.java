@@ -23,7 +23,7 @@ public class CustomerController {
   CustomerService customerService;
 
 
-  @GetMapping
+  @RequestMapping(value = "/", method = RequestMethod.GET)
   public ResponseEntity<List<Customer>> getAllCustomers(){
     try{
       List<Customer> customers = new ArrayList<>();
