@@ -2,6 +2,7 @@ package com.heb.backend.controller;
 
 import com.heb.backend.entity.Customer;
 import com.heb.backend.repository.CustomerRepository;
+import com.heb.backend.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,8 @@ public class CustomerController {
 
   @Autowired
   CustomerRepository customerRepository;
+  @Autowired
+  CustomerService customerService;
 
 
   @GetMapping
@@ -57,6 +60,8 @@ public class CustomerController {
   @RequestMapping(method = RequestMethod.POST)
   public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer){
     try{
+      customer = customerService.cleanCustomerData(customer);
+      customerService.validateCustomer(customer);
       Customer _customer = customerRepository.save(customer);
       return new ResponseEntity<>(_customer, HttpStatus.CREATED);
     } catch (Exception e){
