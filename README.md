@@ -2,7 +2,7 @@
 ## Setup
 
 ### Database Setup:
-Inside `/Docker/db/mysql`:
+Inside `/Docker/db/mysql` run:
 
 ```sh
 docker-compose up
